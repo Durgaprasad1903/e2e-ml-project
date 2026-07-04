@@ -12,10 +12,13 @@ app = FastAPI()
 # -----------------------------
 # Load Saved Objects
 # -----------------------------
+from pathlib import Path
 
-model = joblib.load("model.pkl")
-scaler = joblib.load("scaler.pkl")
-pca = joblib.load("pca.pkl")
+BASE_DIR = Path(__file__).resolve().parent
+
+model = joblib.load(BASE_DIR / "model.pkl")
+scaler = joblib.load(BASE_DIR / "scaler.pkl")
+pca = joblib.load(BASE_DIR / "pca.pkl")
 
 # -----------------------------
 # Request Schema
